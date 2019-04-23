@@ -12,14 +12,14 @@ class RandomQuoteRouter: RandomQuoteRouterProtocol {
   static func createRandomQuoteModule() -> UIViewController {
     let quoteViewController = QuoteViewController()
     let presenter: RandomQuotePresenterProtocol & RandomQuoteInteractorOutputProtocol = RandomQuotePresenter()
-    let intercator: RandomQuoteInteractorInputProtocol = RandomQuoteInteractor()
+    let interactor: RandomQuoteInteractorInputProtocol = RandomQuoteInteractor()
     let router: RandomQuoteRouterProtocol = RandomQuoteRouter()
     
     quoteViewController.presenter = presenter
     presenter.view = quoteViewController
-    presenter.interactor = intercator
+    presenter.interactor = interactor
     presenter.router = router
-    intercator.presenter = presenter
+    interactor.presenter = presenter
     
     return quoteViewController
   }
